@@ -1,6 +1,11 @@
+# encoding: utf-8
+require_relative "tweetable"
+
 module Blog
 
 	class Post
+		# include Tweetable
+
 		# we will have 4 getters for the Post class
 		attr_reader :author, :title, :body, :comments
 
@@ -24,9 +29,16 @@ module Blog
 			comments.each { |c| @comments << c }
 		end
 
+		def insert_random_comment
+			@comments << Comment.new(user: "Jose Mota",\
+			 body: "A body")
+		end
+
 	end
 
 	class Comment
+		include Tweetable
+
 		# we will have 2 getters for the Comment class
 		attr_reader :user, :body
 
