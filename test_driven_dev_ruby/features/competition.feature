@@ -8,5 +8,7 @@ Feature: Competitions
 		When a team enters the competition
 		Then I should see an error
 
-	Scenario: team enters a competition with questions
-		
+	Scenario: Team enters a competition with questions
+		Given I have a competition with questions
+		When a team enters the competition
+		Then I should not see an error
